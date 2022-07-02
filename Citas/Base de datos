@@ -1,0 +1,18 @@
+create database citas6;
+use citas6;
+
+create table citas(
+id_cita int auto_increment,
+id_empleado int not null,
+id_Usuario int not null,
+id_horario int not null,
+primary key(id_cita));
+
+ insert into citas (id_empleado,id_Usuario,id_horario)
+ values('5','2','10'),
+	   ('1','5','11'),
+	   ('2','6','12'),
+	    ('2','6','12');
+ select * from citas;
+update citas set id_usuario=2
+  where id_usuario=8;
