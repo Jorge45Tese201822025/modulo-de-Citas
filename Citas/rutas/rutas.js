@@ -62,3 +62,4 @@ ruta.put('/Citas/:id', (req, res) => {
 
 
 module.exports = ruta;
+module.exports = ruta;
