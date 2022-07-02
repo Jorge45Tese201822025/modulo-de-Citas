@@ -1,0 +1,182 @@
+create database citas2
+use citas2
+
+create table First_Name(
+id_First_Name int not null,
+nombre varchar(25),
+primary key(id_First_Name)
+)
+
+create table Apellidos
+id_Apellidos int not null,
+Apellidos varchar(25),
+primary key(id_Apellidos)
+)
+
+create table Gmail
+id_Gmail int not null,
+Gmail varchar(30),
+primary key(id_Gmail)
+)
+
+create table Password
+id_Password int not null,
+Password varchar(10),
+primary key(id_Password)
+)
+
+create table Dirección_1
+id_Dirección1 int not null,
+Direccion varchar(50),
+primary key(id_Dirección_1)
+)
+
+create table Ciudad
+id_Ciudad int not null,
+Cuidad varchar(20),
+primary key(id_Ciudad)
+)
+
+create table Estado
+id_Estado int not null,
+Estado varchar(20),
+primary key(id_Estado)
+)
+
+create table Codigo_postals
+id_Codigo_postals int not null,
+codigo_postals varchar(5),
+primary key(id_Codigo_postals)
+)
+
+create table Numero_de_Empleado
+id_Numero_de_Empleado int not null,
+Numero_de_Empleado varchar(12),
+primary key(id_Numero_de_Empleado)
+)
+
+
+INSERT INTO First_Name (id_First_Name, nombre) values ('1','Jorge');
+INSERT INTO First_Name (id_First_Name, nombre) values ('2','Daniel');
+INSERT INTO First_Name (id_First_Name, nombre) values ('3','wendy');
+INSERT INTO First_Name (id_First_Name, nombre) values ('4','Daniela');
+INSERT INTO First_Name (id_First_Name, nombre) values ('5','Toño');
+
+INSERT INTO Apellidos (id_Apellidos, Apellidos) values ('1','Hernandez Sahagun');
+INSERT INTO Apellidos (id_Apellidos, Apellidos) values ('2','Hernandez Vergara');
+INSERT INTO Apellidos (id_Apellidos, Apellidos) values ('3','Muñoz Baez');
+INSERT INTO Apellidos (id_Apellidos, Apellidos) values ('4','Castro Sandoval');
+INSERT INTO Apellidos (id_Apellidos, Apellidos) values ('5','Ramos Hernandez');
+
+INSERT INTO Gmail (id_Gmail, Gmail) values ('1','sahagunjorge59@gmail,com');
+INSERT INTO Gmail (id_Gmail, Gmail) values ('2','Hernandez89vergara@gmail.com');
+INSERT INTO Gmail (id_Gmail, Gmail) values ('3','Muñozwendy76@gmail.com');
+INSERT INTO Gmail (id_Gmail, Gmail) values ('4','daniela989@gmail.com');
+INSERT INTO Gmail (id_Gmail, Gmail) values ('5','Toñoramos56@gmail.com');
+
+INSERT INTO Password (id_Password, Password) values ('1','LOSKD989');
+INSERT INTO Password (id_Password, Password) values ('2','67HGDCBV');
+INSERT INTO Password (id_Password, Password) values ('3','6GDSXCBG');
+INSERT INTO Password (id_Password, Password) values ('4','LONGHVCD');
+INSERT INTO Password (id_Password, Password) values ('5','3DCXZASE');
+
+INSERT INTO Dirección_1 (id_Dirección_1, nombre) values ('1','Calle zapotecas manzana 519 lote 5');
+INSERT INTO Dirección_1 (id_Dirección_1, nombre) values ('2','calle de los dioses manzana 89');
+INSERT INTO Dirección_1 (id_Dirección_1, nombre) values ('3','calle zaragosa mz 94');
+INSERT INTO Dirección_1 (id_Dirección_1, nombre) values ('4','calle mexicas manzana 9');
+INSERT INTO Dirección_1 (id_Dirección_1, nombre) values ('5','calle cegor manzana 5');
+
+INSERT INTO Ciudad (id_Ciudad, Ciudad) values ('1','Mexico');
+INSERT INTO Ciudad (id_Ciudad, Ciudad) values ('2','Mexico');
+INSERT INTO Ciudad (id_Ciudad, Ciudad) values ('3','Mexico');
+INSERT INTO Ciudad (id_Ciudad, Ciudad) values ('4','Mexico');
+INSERT INTO Ciudad (id_Ciudad, Ciudad) values ('5','Mexico');
+
+INSERT INTO Estado (id_Estado, Estado) values ('1','Estado de Mexico');
+INSERT INTO Estado (id_Estado, Estado) values ('2','DF');
+INSERT INTO Estado (id_Estado, Estado) values ('3','DF');
+INSERT INTO Estado (id_Estado, Estado) values ('4','Estadi de Mexico');
+INSERT INTO Estado (id_Estado, Estado) values ('5','DF');
+
+INSERT INTO Codigo_postals (id_Codigo_postals, Codigo_postals) values ('1','55120');
+INSERT INTO Codigo_postals (id_Codigo_postals, Codigo_postals) values ('2','98920');
+INSERT INTO Codigo_postals (id_Codigo_postals, Codigo_postals) values ('3','02221');
+INSERT INTO Codigo_postals (id_Codigo_postals, Codigo_postals) values ('4','09876');
+INSERT INTO Codigo_postals (id_Codigo_postals, Codigo_postals) values ('5','55767');
+
+INSERT INTO Numero_de_Empleado (id_Numero_de_Empleado, Numero_de_Empleado) values ('1','98');
+INSERT INTO Numero_de_Empleado (id_Numero_de_Empleado, Numero_de_Empleado) values ('2','8');
+INSERT INTO Numero_de_Empleado (id_Numero_de_Empleado, Numero_de_Empleado) values ('3','1');
+INSERT INTO Numero_de_Empleado (id_Numero_de_Empleado, Numero_de_Empleado) values ('4','4');
+INSERT INTO Numero_de_Empleado (id_Numero_de_Empleado, Numero_de_Empleado) values ('5','8');
+
+SELECT * FROM First_Name;
+SELECT * FROM Apellidos;
+SELECT * FROM Gmail;
+SELECT * FROM Password;
+SELECT * FROM Dirección_1;
+SELECT * FROM Ciudad;
+SELECT * FROM Estado;
+SELECT * FROM Codigo_postals;
+SELECT * FROM Numero_de_Empleado;
+---------------------------------------------------------------------------------------------------------
+create database citas2
+use citas2
+
+create table Datos_personales(id_usuario varchar(4) not null,
+ nombre varchar(30),
+ ap_paterno varchar(20), 
+ ap_materno varchar(20), 
+ sexo varchar(1), 
+ edad int, 
+ fecha_nacimiento date, 
+ telefono varchar(15), 
+ correo varchar(50), 
+ colonia varchar(50), 
+ calle varchar(50),
+ cp varchar(5), primary key(id_usuario));
+
+
+ alter table Usuario add foreign key (id_datos) references Datos_personales(id_usuario);
+ 
+ insert into Datos_personales values('T000', 'Aline', 'Morales', 'Mendez', 'F', 22, '2000-05-02', '5512345678', 'aline@gmail.com', 'Miguel Hidalgo', 'Benito Juarez', '55490');
+insert into Datos_personales values('T001', 'Dari', 'Hernandez', 'Hernandez', 'F', 22, '2000-02-16', '5512876678', 'dari@gmail.com', 'Los laureles', 'Libertad', '62547');
+ insert into Datos_personales values('P000', 'Angel', 'Mendez', 'Mendez', 'M', 22, '2000-03-16', '5598876678', 'angel@gmail.com', 'Los laureles', 'Libertad', '62547');
+ insert into Datos_personales values('P000', 'Fransisco', 'Aguilar', 'Becerra', 'M', 22, '2000-03-16', '5598876678', 'angel@gmail.com', 'Los laureles', 'Libertad', '62547');
+ insert into Datos_personales values('P001', 'Fransisco', 'Aguilar', 'Becerra', 'M', 22, '2000-03-16', '5598876678', 'angel@gmail.com', 'Los laureles', 'Libertad', '62547');
+ insert into Datos_personales values('V000', 'Ana', 'Contreras', 'Figueroa', 'F', 22, '2000-03-16', '5598876678', 'ana@gmail.com', 'Los laureles', 'Libertad', '62547');
+ insert into Datos_personales values('V001', 'Martha', 'Palma', 'Garcia', 'F', 22, '2000-03-16', '5598876678', 'martha@gmail.com', 'Los laureles', 'Libertad', '62547');
+ 
+ select * from Datos_personales;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ create database citas3
+use citas3
+
+create table Datos_personales1(
+id_usuario varchar(4) not null,
+ nombre varchar(30),
+ ap_Apellidos varchar(50),
+ Gmail varchar(30), 
+ Password varchar(20), 
+ Direccion1 varchar(50),
+ Cuidad varchar(30),
+ Estado varchar(30),
+ Codigo_postals varchar(5),
+ Numero_de_Empleado varchar(10),
+  primary key(id_usuario));
+  
+ insert into Datos_personales1 values('1', 'Jorge fabian','Hernandez Sahagun', 'sahagunjorge59@gmail', 33432324,'calle zapotecas','Miguel Hidalgo', 'Benito Juarez', '55490','0394303');
+ insert into Datos_personales1 values('2', 'Jorge fabian','Hernandez Sahagun', 'sahagunjorge59@gmail', 33432324,'calle zapotecas','Miguel Hidalgo', 'Benito Juarez', '55490','0394303');
+ insert into Datos_personales1 values('3', 'Jorge fabian','Hernandez Sahagun', 'sahagunjorge59@gmail', 33432324,'calle zapotecas','Miguel Hidalgo', 'Benito Juarez', '55490','0394303');
+ insert into Datos_personales1 values('4', 'Jorge fabian','Hernandez Sahagun', 'sahagunjorge59@gmail', 33432324,'calle zapotecas','Miguel Hidalgo', 'Benito Juarez', '55490','0394303');
+ insert into Datos_personales1 values('5', 'Jorge fabian','Hernandez Sahagun', 'sahagunjorge59@gmail', 33432324,'calle zapotecas','Miguel Hidalgo', 'Benito Juarez', '55490','0394303');
+ insert into Datos_personales1 values('6', 'Jorge fabian','Hernandez Sahagun', 'sahagunjorge59@gmail', 33432324,'calle zapotecas','Miguel Hidalgo', 'Benito Juarez', '55490','0394303');
+ select * from Datos_personales1;
+ alter table Usuario add foreign key (id_datos) references Datos_personales(id_usuario);
+ DROP TABLE  Datos_personales1;
+
+
+
+
+

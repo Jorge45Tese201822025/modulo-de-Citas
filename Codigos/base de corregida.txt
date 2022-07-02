@@ -1,0 +1,180 @@
+create database AccesoEmpresa;
+use AccesoEmpresa;
+
+
+
+#****************************** CREACION DE TABLAS *******************************
+ create table Roles(id_roles int auto_increment, descripcion varchar(20), primary key(id_roles));
+
+
+ create table Departamento(id_departamento int auto_increment, descripcion varchar(20), primary key(id_departamento));
+
+
+ create table Datos_personales(id_usuario varchar(4) not null, nombre varchar(30), ap_paterno varchar(20), ap_materno varchar(20), sexo varchar(1), edad int, fecha_nacimiento date, telefono varchar(15), correo varchar(50), colonia varchar(50), calle varchar(50), cp varchar(5), primary key(id_usuario));
+
+
+ create table Usuario (id_usuario varchar(4) not null, usuario varchar(20), contrasenia varchar(100), id_roles int not null, id_datos varchar(4) not null, id_departamento int not null, primary key(id_usuario));
+
+
+#****************************** AGREGANDO LLAVES FK ******************************
+ alter table Usuario add foreign key (id_roles) references Roles(id_roles);
+
+
+ alter table Usuario add foreign key (id_datos) references Datos_personales(id_usuario);
+
+
+ alter table Usuario add foreign key (id_departamento) references Departamento(id_departamento);
+
+
+
+#****************************** CARGANDO DATOS *******************************
+ insert into Roles values(null, 'Trabajador');
+
+
+ insert into Roles values(null, 'Proveedor');
+
+
+ insert into Roles values(null, 'Invitado');
+
+ insert into Departamento values(null, 'Recursos humanos');
+
+ insert into Departamento values(null, 'Marketing');
+
+
+ insert into Departamento values(null, 'Desarrollo');
+
+insert into Departamento values(null, 'Gestion');
+
+ insert into Datos_personales values('T000', 'Aline', 'Morales', 'Mendez', 'F', 22, '2000-05-02', '5512345678', 'aline@gmail.com', 'Miguel Hidalgo', 'Benito Juarez', '55490');
+
+
+insert into Datos_personales values('T001', 'Dari', 'Hernandez', 'Hernandez', 'F', 22, '2000-02-16', '5512876678', 'dari@gmail.com', 'Los laureles', 'Libertad', '62547');
+
+ insert into Datos_personales values('P000', 'Angel', 'Mendez', 'Mendez', 'M', 22, '2000-03-16', '5598876678', 'angel@gmail.com', 'Los laureles', 'Libertad', '62547');
+
+
+ insert into Datos_personales values('P000', 'Fransisco', 'Aguilar', 'Becerra', 'M', 22, '2000-03-16', '5598876678', 'angel@gmail.com', 'Los laureles', 'Libertad', '62547');
+
+ insert into Datos_personales values('P001', 'Fransisco', 'Aguilar', 'Becerra', 'M', 22, '2000-03-16', '5598876678', 'angel@gmail.com', 'Los laureles', 'Libertad', '62547');
+
+ insert into Datos_personales values('V000', 'Ana', 'Contreras', 'Figueroa', 'F', 22, '2000-03-16', '5598876678', 'ana@gmail.com', 'Los laureles', 'Libertad', '62547');
+
+
+ insert into Datos_personales values('V001', 'Martha', 'Palma', 'Garcia', 'F', 22, '2000-03-16', '5598876678', 'martha@gmail.com', 'Los laureles', 'Libertad', '62547');
+
+
+insert into Usuario values('P000', 'Angel', md5('1234'), 2, 'P000', 5);
+insert into Usuario values('P001', 'Fransisco', md5('1234'), 2, 'P001', 5);
+insert into Usuario values('T000', 'Aline', md5('1234'), 1, 'T000', 1);
+insert into Usuario values('T001', 'Dari', md5('1234'), 1, 'T001', 2);
+insert into Usuario values('V000', 'Ana', md5('1234'), 3, 'V000', 5);
+insert into Usuario values('V001', 'Martha', md5('1234'), 3, 'V001', 5);
+
+
+#****************************** CONSULTAS *******************************
+select * from Roles;
+
+
+ select * from Departamento;
+
+
+
+ select * from Datos_personales;
+
+
+ select nombre, correo, id_departamento from Datos_personales inner join Usuario on Datos_personales.id_usuario = Usuario.id_datos;
+
+
+
+ select usuario, descripcion from Usuario inner join Roles on Usuario.id_roles = Roles.id_roles;
+
+
+
+ select usuario, descripcion from Usuario inner join Departamento on Usuario.id_departamento = Departamento.id_departamento;
+
+
+
+
+#****************************** AGREGANDO TABLA CITAS ****************************
+create table Dias(
+id_dia varchar(2) not null, 
+dia varchar(15), primary key(id_dia));
+
+create table Horas(
+id_hora varchar(4) not null, 
+hora time, 
+primary key(id_hora));
+
+
+ create table Dia_hora(
+id_diaHora varchar(6) not null, 
+id_dia varchar(2), 
+id_hora varchar(4),
+primary key(id_diaHora), 
+foreign key(id_dia) references Dias(id_dia), 
+foreign key(id_hora) references Horas(id_hora));
+
+
+ create table Citas(
+id_cita varchar(4) not null, 
+id_usuario varchar(4), 
+id_diaHora varchar(6),
+primary key(id_cita), 
+foreign key(id_usuario) references Usuario(id_usuario),
+foreign key(id_diaHora) references Dia_hora(id_diaHora));
+
+
+
+ #********************* CARGANDO DATOS **********************
+ insert into Dias values('D1', 'Lunes');
+
+
+ insert into Dias values('D2', 'Martes');
+
+
+ insert into Dias values('D3', 'Miercoles');
+
+
+ insert into Dias values('D4', 'Jueves');
+
+ insert into Dias values('D5', 'Viernes');
+
+
+insert into Dias values('D6', 'Sabado');
+
+ insert into Horas values('H1', '12:00');
+
+ insert into Horas values('H2', '12:30');
+
+ insert into Horas values('H3', '13:00');
+
+ insert into Horas values('H4', '13:30');
+
+
+ insert into Horas values('H5', '14:00');
+
+
+ insert into Dia_hora values('DH1', 'D1', 'H1');
+
+
+ insert into Dia_hora values('DH2', 'D2', 'H2');
+
+
+ insert into Dia_hora values('DH3', 'D3', 'H3');
+
+ insert into Dia_hora values('DH4', 'D4', 'H4');
+
+ insert into Dia_hora values('DH5', 'D5', 'H5');
+
+
+ insert into Dia_hora values('DH6', 'D6', 'H1');
+
+
+insert into Citas values('C001', 'V001', 'DH1');
+
+ #********************* CONSULTAS **********************
+ select * from Citas;
+ select id_cita, usuario, id_roles, id_diaHora from Usuario inner join Citas on Usuario.id_usuario = Citas.id_usuario;
+ select id_cita as Cita, usuario as Nombre, id_roles as Rol, id_diaHora from Usuario inner join Citas on Usuario.id_usuario = Citas.id_usuario;
+
+

@@ -1,0 +1,48 @@
+create database Fabian
+use Fabian 
+
+create table usuario(
+id_usuario int not null,
+nombre varchar(20),
+primary key(id_usuario)
+)
+
+create table rol(
+id_rol int not null,
+descripción varchar(100),
+primary key(id_rol)
+)
+
+create table usuario_rol(
+id_usuario_rol int not null,
+id_rol int,
+id_usuario int,
+primary key(id_usuario_rol),
+foreign key (id_rol) references rol(id_rol),
+foreign key(id_usuario) references usuario(id_usuario)
+)
+
+INSERT INTO usuario (id_usuario, nombre) values ('4545','Jorge');
+INSERT INTO usuario (id_usuario, nombre) values ('5984','Yael');
+INSERT INTO usuario (id_usuario, nombre) values ('6090','Pati');
+INSERT INTO usuario (id_usuario, nombre) values ('8909','Fabian');
+INSERT INTO usuario (id_usuario, nombre) values ('9090','Gloria');
+
+
+INSERT INTO rol (id_rol,descripción) values ('9090','Contador');
+INSERT INTO rol (id_rol,descripción) values ('6965','Programador');
+INSERT INTO rol (id_rol,descripción) values ('6767','Diseñador');
+INSERT INTO rol (id_rol,descripción) values ('2020','progrmador web');
+INSERT INTO rol (id_rol,descripción) values ('8489','Abogado');
+
+
+INSERT INTO usuario_rol (id_usuario_rol,id_rol,id_usuario) values ('6767','9090','4545');
+INSERT INTO usuario_rol (id_usuario_rol,id_rol,id_usuario) values ('8909','6965','5984');
+INSERT INTO usuario_rol (id_usuario_rol,id_rol,id_usuario) values ('4541','6767','6090');
+INSERT INTO usuario_rol (id_usuario_rol,id_rol,id_usuario) values ('2343','2020','8909');
+INSERT INTO usuario_rol (id_usuario_rol,id_rol,id_usuario) values ('7876','8489','9090');
+
+
+SELECT * FROM usuario;
+SELECT * FROM rol;
+SELECT * FROM usuario_rol;

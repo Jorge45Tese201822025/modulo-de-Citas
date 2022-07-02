@@ -1,0 +1,146 @@
+create database citas2
+use citas2
+
+create table First_Name(
+id_First_Name int not null,
+nombre varchar(25),
+primary key(id_First_Name)
+)
+
+create table Apellidos
+id_Apellidos int not null,
+Apellidos varchar(25),
+primary key(id_Apellidos)
+)
+
+create table Gmail
+id_Gmail int not null,
+Gmail varchar(30),
+primary key(id_Gmail)
+)
+
+create table Password
+id_Password int not null,
+Password varchar(10),
+primary key(id_Password)
+)
+
+create table Dirección_1
+id_Dirección1 int not null,
+Direccion varchar(50),
+primary key(id_Dirección_1)
+)
+
+create table Ciudad
+id_Ciudad int not null,
+Cuidad varchar(20),
+primary key(id_Ciudad)
+)
+
+create table Estado
+id_Estado int not null,
+Estado varchar(20),
+primary key(id_Estado)
+)
+
+create table Codigo_postals
+id_Codigo_postals int not null,
+codigo_postals varchar(5),
+primary key(id_Codigo_postals)
+)
+
+create table Numero_de_Empleado
+id_Numero_de_Empleado int not null,
+Numero_de_Empleado varchar(12),
+primary key(id_Numero_de_Empleado)
+)
+-----------------------------------
+create table usuario_rol(
+id_usuario_rol int not null,
+id_First_Name int,
+id_Apellidos int,
+id_Gmail int,
+id_Password int,
+id_Dirección1 int,
+id_Ciudad int,
+id_Estado int,
+id_Codigo_postals int,
+id_Numero_de_Empleado int,
+primary key(id_usuario_rol),
+foreign key (id_First_Name) references First_Name (id_First_Name),
+foreign key(id_Apellidos) references Apellidos (id_Apellidos)
+foreign key (id_Gmail) references Gmail (id_Gmail),
+foreign key(id_Password ) references Password (id_Password )
+foreign key (id_Dirección1) references Dirección1 (id_Dirección1),
+foreign key(id_Ciudad) references Ciudad (id_Ciudad)
+foreign key (id_Codigo_postals) references Codigo_postals (id_Codigo_postals),
+foreign key(id_Numero_de_Empleado) references Numero_de_Empleado (id_Numero_de_Empleado)
+)
+-----------------------------------
+
+INSERT INTO First_Name (id_First_Name, nombre) values ('1','Jorge');
+INSERT INTO First_Name (id_First_Name, nombre) values ('2','Daniel');
+INSERT INTO First_Name (id_First_Name, nombre) values ('3','wendy');
+INSERT INTO First_Name (id_First_Name, nombre) values ('4','Daniela');
+INSERT INTO First_Name (id_First_Name, nombre) values ('5','Toño');
+
+INSERT INTO Apellidos (id_Apellidos, Apellidos) values ('1','Hernandez Sahagun');
+INSERT INTO Apellidos (id_Apellidos, Apellidos) values ('2','Hernandez Vergara');
+INSERT INTO Apellidos (id_Apellidos, Apellidos) values ('3','Muñoz Baez');
+INSERT INTO Apellidos (id_Apellidos, Apellidos) values ('4','Castro Sandoval');
+INSERT INTO Apellidos (id_Apellidos, Apellidos) values ('5','Ramos Hernandez');
+
+INSERT INTO Gmail (id_Gmail, Gmail) values ('1','sahagunjorge59@gmail,com');
+INSERT INTO Gmail (id_Gmail, Gmail) values ('2','Hernandez89vergara@gmail.com');
+INSERT INTO Gmail (id_Gmail, Gmail) values ('3','Muñozwendy76@gmail.com');
+INSERT INTO Gmail (id_Gmail, Gmail) values ('4','daniela989@gmail.com');
+INSERT INTO Gmail (id_Gmail, Gmail) values ('5','Toñoramos56@gmail.com');
+
+INSERT INTO Password (id_Password, Password) values ('1','LOSKD989');
+INSERT INTO Password (id_Password, Password) values ('2','67HGDCBV');
+INSERT INTO Password (id_Password, Password) values ('3','6GDSXCBG');
+INSERT INTO Password (id_Password, Password) values ('4','LONGHVCD');
+INSERT INTO Password (id_Password, Password) values ('5','3DCXZASE');
+
+INSERT INTO Dirección_1 (id_Dirección_1, nombre) values ('1','Calle zapotecas manzana 519 lote 5');
+INSERT INTO Dirección_1 (id_Dirección_1, nombre) values ('2','calle de los dioses manzana 89');
+INSERT INTO Dirección_1 (id_Dirección_1, nombre) values ('3','calle zaragosa mz 94');
+INSERT INTO Dirección_1 (id_Dirección_1, nombre) values ('4','calle mexicas manzana 9');
+INSERT INTO Dirección_1 (id_Dirección_1, nombre) values ('5','calle cegor manzana 5');
+
+INSERT INTO Ciudad (id_Ciudad, Ciudad) values ('1','Mexico');
+INSERT INTO Ciudad (id_Ciudad, Ciudad) values ('2','Mexico');
+INSERT INTO Ciudad (id_Ciudad, Ciudad) values ('3','Mexico');
+INSERT INTO Ciudad (id_Ciudad, Ciudad) values ('4','Mexico');
+INSERT INTO Ciudad (id_Ciudad, Ciudad) values ('5','Mexico');
+
+INSERT INTO Estado (id_Estado, Estado) values ('1','Estado de Mexico');
+INSERT INTO Estado (id_Estado, Estado) values ('2','DF');
+INSERT INTO Estado (id_Estado, Estado) values ('3','DF');
+INSERT INTO Estado (id_Estado, Estado) values ('4','Estadi de Mexico');
+INSERT INTO Estado (id_Estado, Estado) values ('5','DF');
+
+INSERT INTO Codigo_postals (id_Codigo_postals, Codigo_postals) values ('1','55120');
+INSERT INTO Codigo_postals (id_Codigo_postals, Codigo_postals) values ('2','98920');
+INSERT INTO Codigo_postals (id_Codigo_postals, Codigo_postals) values ('3','02221');
+INSERT INTO Codigo_postals (id_Codigo_postals, Codigo_postals) values ('4','09876');
+INSERT INTO Codigo_postals (id_Codigo_postals, Codigo_postals) values ('5','55767');
+
+INSERT INTO Numero_de_Empleado (id_Numero_de_Empleado, Numero_de_Empleado) values ('1','98');
+INSERT INTO Numero_de_Empleado (id_Numero_de_Empleado, Numero_de_Empleado) values ('2','8');
+INSERT INTO Numero_de_Empleado (id_Numero_de_Empleado, Numero_de_Empleado) values ('3','1');
+INSERT INTO Numero_de_Empleado (id_Numero_de_Empleado, Numero_de_Empleado) values ('4','4');
+INSERT INTO Numero_de_Empleado (id_Numero_de_Empleado, Numero_de_Empleado) values ('5','8');
+
+SELECT * FROM First_Name;
+SELECT * FROM Apellidos;
+SELECT * FROM Gmail;
+SELECT * FROM Password;
+SELECT * FROM Dirección_1;
+SELECT * FROM Ciudad;
+SELECT * FROM Estado;
+SELECT * FROM Codigo_postals;
+SELECT * FROM Numero_de_Empleado;
+
+
+
